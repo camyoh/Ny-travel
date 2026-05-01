@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plan NY · Abr–May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: oklch(0.975 0.008 75);
+    --paper-2: oklch(0.95 0.012 75);
+    --line: oklch(0.88 0.012 70);
+    --line-soft: oklch(0.92 0.01 70);
+    --ink: oklch(0.22 0.02 60);
+    --ink-2: oklch(0.42 0.02 60);
+    --ink-3: oklch(0.58 0.02 60);
+    --accent: oklch(0.62 0.15 45);
+    --accent-soft: oklch(0.92 0.04 60);
+    --shadow: 0 1px 0 oklch(0.88 0.01 70), 0 8px 24px -12px oklch(0.20 0.02 60 / 0.18);
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    max-width: 480px;
+    margin: 0 auto;
+    border-left: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft);
+    min-height: 100vh;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ─── Hero ─── */
+  .hero{
+    position:relative;
+    padding: 28px 22px 24px;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(120% 80% at 100% 0%, oklch(0.92 0.04 60) 0%, transparent 55%),
+      var(--paper);
+    overflow:hidden;
+  }
+  .hero .meta{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 14px;
+  }
+  .hero h1{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero .sub{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink-2);
+    line-height: 1.15;
+    margin-top: 10px;
+  }
+  .hero .stamp{
+    position:absolute;
+    top:24px;
+    right:22px;
+    width: 56px; height: 56px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    display:grid; place-items:center;
+    transform: rotate(-8deg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    text-align:center;
+    line-height: 1.15;
+    opacity: 0.7;
+  }
+  .hero .dates{
+    margin-top: 22px;
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+  }
+  .hero .dates .dot{
+    flex:1;
+    height:1px;
+    background: repeating-linear-gradient(90deg, var(--ink-3) 0 2px, transparent 2px 6px);
+  }
+
+  /* ─── Datos clave ─── */
+  .key{
+    padding: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-title{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 14px;
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .section-title::before{
+    content:"";
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .key-grid{
+    display:grid;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .key-row{
+    display:grid;
+    grid-template-columns: 92px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .key-row .k{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .key-row .v{
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .key-row .v strong{
+    font-weight: 600;
+  }
+  .key-row .v small{
+    display:block;
+    color: var(--ink-2);
+    font-size: 12.5px;
+    margin-top: 2px;
+  }
+  .code{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── Reservas ─── */
+  .reservas{
+    padding: 0 22px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .res-card{
+    border:1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 14px 16px;
+    margin-bottom: 10px;
+    background: var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .res-card::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width: 3px;
+    background: var(--accent);
+  }
+  .res-card .tag{
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .res-card h3{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 26px;
+    margin: 0 0 4px;
+    line-height: 1.05;
+  }
+  .res-card .when{
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .res-card .where{
+    font-size: 12.5px;
+    color: var(--ink-3);
+    margin-top: 6px;
+    border-top: 1px dashed var(--line);
+    padding-top: 6px;
+  }
+
+  /* ─── Tabs ─── */
+  .tabs{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display:flex;
+    background: oklch(0.975 0.008 75 / 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .tab{
+    flex:1;
+    padding: 14px 8px 12px;
+    text-align:center;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-3);
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    border-bottom: 2px solid transparent;
+    transition: all .15s ease;
+    letter-spacing: 0.02em;
+  }
+  .tab .num{
+    display:block;
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 3px;
+    color: var(--ink-2);
+  }
+  .tab[aria-selected="true"]{
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .tab[aria-selected="true"] .num{
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ─── Día ─── */
+  .day{
+    display:none;
+    padding: 24px 0 8px;
+  }
+  .day.active{ display:block; }
+  .day-head{
+    padding: 0 22px 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 4px;
+  }
+  .day-head .label{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .day-head h2{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  .day-head h2 em{
+    font-style: italic;
+    color: var(--accent);
+  }
+  .day-head .route{
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+  }
+  .day-head .route span{
+    white-space:nowrap;
+  }
+  .day-head .route .arrow{
+    color: var(--ink-3);
+    margin: 0 4px;
+  }
+
+  /* ─── Timeline ─── */
+  .timeline{
+    padding: 8px 0 24px;
+    position:relative;
+  }
+  .stop{
+    position:relative;
+    padding: 18px 22px 18px 88px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .stop:last-child{ border-bottom: 1px solid var(--line); }
+  .stop .time{
+    position:absolute;
+    left: 22px;
+    top: 22px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    width: 40px;
+    line-height: 1.2;
+  }
+  .stop::before{
+    content:"";
+    position:absolute;
+    left: 70px;
+    top: 26px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--ink-2);
+  }
+  .stop.key-stop::before{
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .stop::after{
+    content:"";
+    position:absolute;
+    left: 73px;
+    top: 36px;
+    bottom: -1px;
+    width: 1px;
+    background: var(--line);
+  }
+  .stop:last-child::after{ display:none; }
+  .stop h4{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.1;
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+  .stop h4 em{
+    font-style: italic;
+  }
+  .stop .where{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .stop p{
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .stop ul{
+    margin: 8px 0 0;
+    padding: 0;
+    list-style:none;
+  }
+  .stop ul li{
+    font-size: 13px;
+    color: var(--ink-2);
+    padding: 4px 0 4px 14px;
+    position:relative;
+    line-height: 1.45;
+  }
+  .stop ul li::before{
+    content:"";
+    position:absolute;
+    left: 2px;
+    top: 11px;
+    width: 4px; height: 1px;
+    background: var(--ink-3);
+  }
+  .stop .pill{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .stop .pill.transit{
+    color: var(--accent);
+    border-color: oklch(0.85 0.06 50);
+  }
+  .stop .tip{
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: oklch(0.35 0.06 45);
+    line-height: 1.45;
+    position:relative;
+  }
+  .stop .tip strong{
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display:block;
+    margin-bottom: 2px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .stop.show-stop{
+    background: linear-gradient(180deg, oklch(0.94 0.03 60) 0%, transparent 100%);
+  }
+  .stop.show-stop::before{
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* Hard rule callout */
+  .hard-rule{
+    margin: 14px 22px 0;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px 16px;
+    background: var(--accent-soft);
+  }
+  .hard-rule-label{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .hard-rule h4{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .hard-rule h4 em{ font-style: italic; }
+  .hard-rule p{
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* ─── Checks de día ─── */
+  .day-checks{
+    padding: 18px 22px 28px;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .day-checks .heading{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+  .day-checks .pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 6px;
+  }
+  .day-checks .check-pill{
+    font-size: 11.5px;
+    color: var(--ink-2);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 4px 9px;
+    border-radius: 14px;
+  }
+
+  /* ─── Listas finales ─── */
+  .checklist{
+    padding: 24px 22px;
+    border-top: 1px solid var(--line);
+  }
+  .checklist h2{
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 32px;
+    margin: 8px 0 14px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .checklist h2 em{ font-style: italic; color: var(--accent); }
+  .check-item{
+    display:flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line-soft);
+    cursor: pointer;
+    user-select: none;
+  }
+  .check-item:last-child{ border-bottom: none; }
+  .check-item .box{
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--ink-3);
+    border-radius: 4px;
+    margin-top: 1px;
+    position:relative;
+    transition: all .15s ease;
+  }
+  .check-item.done .box{
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .check-item.done .box::after{
+    content:"";
+    position:absolute;
+    left: 5px; top: 2px;
+    width: 5px; height: 9px;
+    border-right: 1.5px solid var(--paper);
+    border-bottom: 1.5px solid var(--paper);
+    transform: rotate(45deg);
+  }
+  .check-item .body{
+    flex: 1;
+    min-width: 0;
+  }
+  .check-item .body .name{
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .check-item .body .where{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .check-item.done .body .name{
+    text-decoration: line-through;
+    color: var(--ink-3);
+  }
+
+  /* ─── Notas ─── */
+  .notas{
+    padding: 24px 22px 32px;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .notas .nota{
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    display: flex;
+    gap: 10px;
+  }
+  .notas .nota:last-child{ border-bottom: none; }
+  .notas .nota .num{
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 22px;
+    padding-top: 2px;
+    letter-spacing: 0.05em;
+  }
+  .notas .nota strong{
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ─── Footer ─── */
+  footer{
+    padding: 28px 22px 40px;
+    text-align:center;
+    border-top: 1px solid var(--line);
+  }
+  footer .signature{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-2);
+    margin-bottom: 6px;
+  }
+  footer .meta{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* ─── Big number divider ─── */
+  .divider-num{
+    padding: 18px 22px 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+
+  @media (min-width: 481px){
+    body{ box-shadow: 0 0 60px -20px oklch(0.20 0.02 60 / 0.15); }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <div class="meta">
+      <span>NYC · 2026</span>
+      <span>3 días · 2 personas</span>
+    </div>
+    <h1>Nueva<br><em>York</em></h1>
+    <div class="dates">
+      <span>JUE 30 ABR</span>
+      <span class="dot"></span>
+      <span>DOM 03 MAY</span>
+    </div>
+  </header>
+
+  <!-- ─── DATOS CLAVE ─── -->
+  <section class="key">
+    <div class="section-title">Datos del viaje</div>
+    <div class="key-grid">
+      <div class="key-row">
+        <div class="k">Ida</div>
+        <div class="v">
+          <strong>AV020</strong> · Bogotá → NY
+          <small>Llegada El Dorado · jue 30 abr · <strong>21:15</strong></small>
+          <small>Código <span class="code">BIW5CM</span></small>
+        </div>
+      </div>
+      <div class="key-row">
+        <div class="k">Regreso</div>
+        <div class="v">
+          <strong>AV211</strong> · NY → Bogotá
+          <small>Llegada JFK · dom 3 may · <strong>12:30 pm</strong></small>
+          <small>Terminal 4 · Avianca · <span class="code">BI25CM</span></small>
+        </div>
+      </div>
+      <div class="key-row">
+        <div class="k">Airbnb</div>
+        <div class="v">
+          <a href="https://maps.google.com/?q=246+West+21st+Street+New+York+NY+10011" target="_blank"><strong>246 West 21st St</strong></a>
+          <small>Chelsea · NY 10011</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESERVAS ─── -->
+  <section class="reservas">
+    <div class="section-title" style="margin-top: 6px;">Ya reservado</div>
+    <div class="res-card">
+      <div class="tag">Show · Vie 1 may · 7:00 pm</div>
+      <h3>Wicked</h3>
+      <div class="when">Llegar al teatro <strong>18:45</strong></div>
+      <div class="where">
+        <a href="https://maps.google.com/?q=Gershwin+Theatre+222+W+51st+St+New+York" target="_blank">Gershwin Theatre · 222 W 51st St</a>
+      </div>
+    </div>
+    <div class="res-card">
+      <div class="tag">Atracción · Sáb 2 may · 6:00–7:00 pm</div>
+      <h3>SUMMIT One Vanderbilt</h3>
+      <div class="when">Entrada timed · One Vanderbilt</div>
+      <div class="where">
+        <a href="https://maps.google.com/?q=SUMMIT+One+Vanderbilt" target="_blank">Junto a Grand Central Terminal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TABS DÍAS ─── -->
+  <nav class="tabs" role="tablist" aria-label="Días del viaje">
+    <button class="tab" role="tab" aria-selected="true" data-day="1">
+      <span class="num">01</span>
+      Viernes
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-day="2">
+      <span class="num">02</span>
+      Sábado
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-day="3">
+      <span class="num">03</span>
+      Domingo
+    </button>
+  </nav>
+
+  <!-- ─── DÍA 1 ─── -->
+  <section class="day active" data-day="1">
+    <div class="day-head">
+      <div class="label">Día 01 · Viernes 1 de mayo</div>
+      <h2>Central Park <em>&</em><br>Broadway</h2>
+      <div class="route">
+        <span>UWS</span><span class="arrow">→</span><span>Central Park</span><span class="arrow">→</span><span>5ta Ave</span><span class="arrow">→</span><span>Midtown</span><span class="arrow">→</span><span>Times Sq.</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="stop">
+        <div class="time">9:00</div>
+        <h4>Salida del Airbnb</h4>
+        <div class="where">23rd St / 6th Ave</div>
+        <p>Caminar 8 min a la estación.</p>
+        <div style="margin-top:8px"><span class="pill transit">Tren F downtown</span><span class="pill">→ 2nd Ave · 10 min</span></div>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">9:30</div>
+        <h4><em>Russ & Daughters</em> Cafe</h4>
+        <div class="where">127 Orchard St · Lower East Side</div>
+        <p>Desayuno: bagel con cream cheese + nova lox, latkes, huevos revueltos con salmón, café. Sin nada dulce.</p>
+        <div class="tip"><strong>Tip de paso</strong>De camino, foto frente a la marquesina de Katz's Deli (205 E Houston, 2 cuadras). El sábado vuelven a comer.</div>
+      </div>
+
+      <div class="stop">
+        <div class="time">10:45</div>
+        <h4>Subte al Upper West Side</h4>
+        <div class="where">F → 14th St · transbordo 1 → 72nd St</div>
+        <p>~30 min total.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">11:30</div>
+        <h4><em>Levain Bakery</em> UWS</h4>
+        <div class="where">167 W 74th St</div>
+        <p>Comprar las galletas <strong>chocolate chip walnut</strong> para llevar y comerlas como snack a media tarde en Central Park.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">12:00</div>
+        <h4>Central Park</h4>
+        <div class="where">Entrada por Strawberry Fields · 72nd & CPW</div>
+        <p>Recorrido a pie ~3 km:</p>
+        <ul>
+          <li>Strawberry Fields → Bethesda Fountain</li>
+          <li>Bow Bridge → The Mall</li>
+          <li>Salida por Grand Army Plaza (5ta & 59th)</li>
+        </ul>
+        <p style="margin-top:8px">En algún banco con vista al lago, sacar las galletas de Levain.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">14:30</div>
+        <h4>5ta Avenida bajando</h4>
+        <div class="where">De 59th hacia 50th St</div>
+        <ul>
+          <li>Apple cube · Bergdorf Goodman</li>
+          <li><a href="https://maps.google.com/?q=Tiffany+%26+Co+727+5th+Ave" target="_blank">Tiffany & Co.</a> (57th)</li>
+          <li><a href="https://maps.google.com/?q=Louis+Vuitton+1+E+57th+St+New+York" target="_blank">Louis Vuitton flagship</a> (1 E 57th)</li>
+          <li><a href="https://maps.google.com/?q=Ralph's+Coffee+711+5th+Ave" target="_blank">Ralph's Coffee</a> · 711 5th Ave — café/té y respiro</li>
+        </ul>
+      </div>
+
+      <div class="stop">
+        <div class="time">15:30</div>
+        <h4>Catedral de <em>San Patricio</em></h4>
+        <div class="where">50th & 5th Ave</div>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">16:00</div>
+        <h4>Rockefeller cluster</h4>
+        <div class="where">Todo en 2 cuadras</div>
+        <ul>
+          <li><a href="https://maps.google.com/?q=Pok%C3%A9mon+Center+New+York+30+Rockefeller" target="_blank">Pokémon Center NYC</a> · 30 Rock — muñeco</li>
+          <li><a href="https://maps.google.com/?q=FAO+Schwarz+30+Rockefeller+Plaza" target="_blank">FAO Schwarz</a> — pancake Jellycat</li>
+          <li><a href="https://maps.google.com/?q=Anthropologie+Rockefeller+Center" target="_blank">Anthropologie</a></li>
+          <li><a href="https://maps.google.com/?q=Magnolia+Bakery+1240+6th+Avenue" target="_blank">Magnolia Bakery</a> · 1240 6th Ave — pudín de banana</li>
+        </ul>
+      </div>
+
+      <div class="stop">
+        <div class="time">17:30</div>
+        <h4>Volver al Airbnb</h4>
+        <div class="where">Cambiarse para el show</div>
+        <div style="margin-top:8px"><span class="pill transit">B/D/F/M en 47-50 Rock</span><span class="pill">→ 23rd St · 12 min</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="time">18:25</div>
+        <h4>Cena rápida + compras</h4>
+        <div class="where">Times Square</div>
+        <ul>
+          <li><a href="https://maps.google.com/?q=Joe's+Pizza+1435+Broadway" target="_blank">Joe's Pizza</a> · 1435 Broadway</li>
+          <li>o <a href="https://maps.google.com/?q=Los+Tacos+No+1+229+W+43rd+St" target="_blank">Los Tacos No. 1</a> · 229 W 43rd</li>
+          <li><a href="https://maps.google.com/?q=Levi's+1535+Broadway+New+York" target="_blank">Levi's flagship</a> · 1535 Broadway — los jeans</li>
+          <li>Tiendas turísticas: <strong>mug, gorra y buso de NY</strong></li>
+          <li>Si entra: <a href="https://maps.google.com/?q=Carlo's+Bake+Shop+625+8th+Ave" target="_blank">Carlo's Bake Shop</a> · 625 8th Ave</li>
+        </ul>
+      </div>
+
+      <div class="stop show-stop">
+        <div class="time">19:00</div>
+        <h4>Wicked</h4>
+        <div class="where">Gershwin Theatre · 222 W 51st St</div>
+        <p>Llegar 18:45. Función hasta ~21:45.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">21:45</div>
+        <h4>Times Square <em>de noche</em></h4>
+        <p>Opción de volver a Magnolia Rockefeller (abierta hasta 23 h) si todavía no probaron el pudín.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">23:15</div>
+        <h4>Vuelta al Airbnb</h4>
+        <div style="margin-top:8px"><span class="pill transit">1 en 50th → 23rd</span><span class="pill">o caminar 25 min</span></div>
+      </div>
+    </div>
+
+    <div class="day-checks">
+      <div class="heading">Checks del día 01</div>
+      <div class="pills">
+        <span class="check-pill">Russ & Daughters</span>
+        <span class="check-pill">Levain</span>
+        <span class="check-pill">Central Park</span>
+        <span class="check-pill">5ta Ave</span>
+        <span class="check-pill">Louis Vuitton</span>
+        <span class="check-pill">Ralph's Coffee</span>
+        <span class="check-pill">San Patricio</span>
+        <span class="check-pill">Rockefeller</span>
+        <span class="check-pill">Pokémon Center</span>
+        <span class="check-pill">Jellycat</span>
+        <span class="check-pill">Anthropologie</span>
+        <span class="check-pill">Magnolia</span>
+        <span class="check-pill">Joe's Pizza</span>
+        <span class="check-pill">Los Tacos No.1</span>
+        <span class="check-pill">Carlo's Bake Shop</span>
+        <span class="check-pill">Levi's</span>
+        <span class="check-pill">Mug/gorra/buso</span>
+        <span class="check-pill">Wicked</span>
+        <span class="check-pill">Times Square</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DÍA 2 ─── -->
+  <section class="day" data-day="2">
+    <div class="day-head">
+      <div class="label">Día 02 · Sábado 2 de mayo</div>
+      <h2>De Liberty <em>al</em><br>Summit</h2>
+      <div class="route">
+        <span>Lower Mnh</span><span class="arrow">→</span><span>Brooklyn</span><span class="arrow">→</span><span>SoHo</span><span class="arrow">→</span><span>Chinatown</span><span class="arrow">→</span><span>Summit</span><span class="arrow">→</span><span>East Village</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="stop">
+        <div class="time">8:15</div>
+        <h4>Salida del Airbnb</h4>
+        <div style="margin-top:8px"><span class="pill transit">1 en 23rd St → South Ferry · 22 min</span></div>
+        <p>En South Street Seaport hay <a href="https://maps.google.com/?q=Black+Seed+Bagels+New+York" target="_blank">Black Seed Bagels</a> o Pret a Manger si quieren bagel salado antes del barco.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">9:00</div>
+        <h4>Estatua + <em>Ellis Island</em></h4>
+        <div class="where">Statue City Cruises · Battery Park</div>
+        <p>Primer ferry 9 am. Recorrido completo hasta 11:45.</p>
+        <div class="tip"><strong>Importante</strong>Reservar tickets timed con anticipación.</div>
+      </div>
+
+      <div class="stop">
+        <div class="time">11:45</div>
+        <h4>Memorial 11S</h4>
+        <div class="where">12 min a pie desde Battery</div>
+        <p>Recorrer los pools y el <a href="https://maps.google.com/?q=Oculus+Westfield+World+Trade+Center" target="_blank">Oculus</a> (Westfield WTC).</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">12:30</div>
+        <h4>Distrito Financiero</h4>
+        <p>Wall St, <a href="https://maps.google.com/?q=Charging+Bull+Wall+Street" target="_blank">Charging Bull</a>, Trinity Church de paso. Caminar al acceso peatonal del Brooklyn Bridge en City Hall (~10 min).</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">13:00</div>
+        <h4>Brooklyn Bridge <em>a pie</em></h4>
+        <div class="where">1.8 km · ~40 min con paradas</div>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">13:45</div>
+        <h4>DUMBO + almuerzo</h4>
+        <ul>
+          <li>Foto clásica del puente: <a href="https://maps.google.com/?q=Washington+Street+%26+Water+Street+Brooklyn" target="_blank">Washington & Water St</a></li>
+          <li><a href="https://maps.google.com/?q=Brooklyn+Bridge+Park" target="_blank">Brooklyn Bridge Park</a></li>
+          <li><a href="https://maps.google.com/?q=Time+Out+Market+New+York" target="_blank">Time Out Market DUMBO</a> — <strong>hamburguesa Pat LaFrieda's</strong>, una de las mejores de NY.</li>
+        </ul>
+      </div>
+
+      <div class="stop">
+        <div class="time">15:15</div>
+        <h4>Vuelta a Manhattan</h4>
+        <div style="margin-top:8px"><span class="pill transit">F en York St → Broadway-Lafayette · 15 min</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="time">15:45</div>
+        <h4>SoHo / NoLita</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=Mure+%26+Grand+New+York" target="_blank">Mure & Grand</a></li>
+          <li><a href="https://maps.google.com/?q=UGG+79+Spring+St+New+York" target="_blank">UGG SoHo</a> · 79 Spring St</li>
+          <li><a href="https://maps.google.com/?q=Cha+Cha+Matcha+373+Broome+St" target="_blank">Cha Cha Matcha</a> · 373 Broome St — matcha latte</li>
+        </ul>
+        <div class="tip"><strong>Desvío opcional</strong>New Balance flagship en Flatiron (5ta & 17th) — 8 min de desvío, o lo dejan para el domingo al pasar por Chelsea.</div>
+      </div>
+
+      <div class="stop">
+        <div class="time">16:45</div>
+        <h4>Little Italy + Chinatown</h4>
+        <div class="where">Mulberry St · Spring a Grand</div>
+        <p><a href="https://maps.google.com/?q=Lombardi's+Pizza+New+York" target="_blank">Lombardi's</a> (la pizzería más vieja de NY), Mott St de Chinatown.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">17:15</div>
+        <h4>Katz's Deli</h4>
+        <div class="where">205 E Houston St</div>
+        <p>Medio sándwich de pastrami para comer ahí o llevar. Histórico — escena de "When Harry Met Sally".</p>
+      </div>
+
+      <div class="stop show-stop">
+        <div class="time">18:00</div>
+        <h4>SUMMIT <em>One Vanderbilt</em></h4>
+        <div class="where">Entrada timed 6:00–7:00 pm</div>
+        <p>Air, Levitation, Affinity. Espejos infinitos.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">19:00</div>
+        <h4>Grand Central Terminal</h4>
+        <p>Saliendo del Summit ya están adentro: main concourse, reloj de ópalo, Whispering Gallery abajo, vista desde la pasarela.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">19:30</div>
+        <h4>Bajar al East Village</h4>
+        <div style="margin-top:8px"><span class="pill transit">6 → Astor Place · 8 min</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="time">20:00</div>
+        <h4>Cena en 7th Street</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=7th+Street+Burger+104+E+7th+St" target="_blank">7th Street Burger</a> · 104 E 7th St</li>
+          <li>Si fila larga: <a href="https://maps.google.com/?q=Veselka+New+York" target="_blank">Veselka</a> al lado (cocina ucraniana, 24 h)</li>
+        </ul>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">21:00</div>
+        <h4>Target East Village</h4>
+        <div class="where">124 E 14th St · abre hasta 22 h</div>
+        <p>Yogurt <strong>Chobani</strong> y cereal <strong>Catalina Crunch</strong>.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">21:30</div>
+        <h4>Vuelta al Airbnb</h4>
+        <div style="margin-top:8px"><span class="pill transit">L en Union Sq → 8 Av · 5 min</span><span class="pill">o Uber 8 min</span></div>
+      </div>
+    </div>
+
+    <div class="day-checks">
+      <div class="heading">Checks del día 02</div>
+      <div class="pills">
+        <span class="check-pill">Estatua</span>
+        <span class="check-pill">Ellis</span>
+        <span class="check-pill">11S</span>
+        <span class="check-pill">Distrito Financiero</span>
+        <span class="check-pill">Brooklyn Bridge</span>
+        <span class="check-pill">DUMBO</span>
+        <span class="check-pill">Hamburguesa</span>
+        <span class="check-pill">Mure & Grand</span>
+        <span class="check-pill">UGGs</span>
+        <span class="check-pill">Cha Cha Matcha</span>
+        <span class="check-pill">Chinatown</span>
+        <span class="check-pill">Little Italy</span>
+        <span class="check-pill">Katz's</span>
+        <span class="check-pill">Summit</span>
+        <span class="check-pill">Grand Central</span>
+        <span class="check-pill">7th Street Burger</span>
+        <span class="check-pill">Target/Chobani/Catalina</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DÍA 3 ─── -->
+  <section class="day" data-day="3">
+    <div class="day-head">
+      <div class="label">Día 03 · Domingo 3 de mayo</div>
+      <h2>High Line <em>&</em><br>vuelta a casa</h2>
+      <div class="route">
+        <span>High Line</span><span class="arrow">→</span><span>Hudson Yards</span><span class="arrow">→</span><span>Liberty Bagels</span><span class="arrow">→</span><span>Chelsea Mkt</span><span class="arrow">→</span><span>West Village</span>
+      </div>
+    </div>
+
+    <div class="hard-rule">
+      <div class="hard-rule-label">⟶ Restricción dura</div>
+      <h4>Salir del Airbnb a más tardar <em>10:15 am</em></h4>
+      <p>Valijas listas la noche anterior. Uber a JFK domingo medio día: 45–55 min típico.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="stop">
+        <div class="time">6:45</div>
+        <h4>Despertar</h4>
+        <p>Ducharse, dejar valijas armadas.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">7:15</div>
+        <h4>Salida caminando</h4>
+        <div class="where">4 min al acceso de la High Line</div>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">7:20</div>
+        <h4>High Line <em>completa</em></h4>
+        <div class="where">De 16th & 10th Ave a Hudson Yards · 1.5 km</div>
+        <p>Vistas al Hudson, jardines, pasarelas suspendidas, el "spur" sobre 30th St.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">8:05</div>
+        <h4>Hudson Yards + Vessel</h4>
+        <p>Foto exterior del Vessel (cerrado al público, pero el reflejo dorado sigue siendo icónico). Edge opcional — pero ya tienen Summit del día anterior.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">8:35</div>
+        <h4>Liberty Bagels</h4>
+        <div class="where">260 W 35th St · abre 6 am dom</div>
+        <p>Para llevar.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">8:50</div>
+        <h4>Chelsea Market</h4>
+        <div class="where">75 9th Ave · abre 8 am dom</div>
+        <p>Comer el bagel ahí dentro o en una banca, recorrer el food hall y los locales de regalos. Última oportunidad de souvenirs si falta algo.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">9:30</div>
+        <h4>West Village <em>rapidito</em></h4>
+        <div class="where">Bleecker St → Bedford St</div>
+        <ul>
+          <li>Foto del <a href="https://maps.google.com/?q=90+Bedford+St+New+York+Friends+Apartment" target="_blank">edificio de Friends</a> (Grove & Bedford)</li>
+          <li>Pasada por <a href="https://maps.google.com/?q=66+Perry+St+New+York" target="_blank">66 Perry St</a> (stoop de Carrie Bradshaw)</li>
+        </ul>
+        <p>A esa hora un domingo casi todo está cerrado — es por la vibra y las fachadas.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">10:00</div>
+        <h4>Vuelta al Airbnb</h4>
+        <p>10 min caminando. Cargar valijas.</p>
+      </div>
+
+      <div class="stop key-stop">
+        <div class="time">10:30</div>
+        <h4>Uber a <em>JFK</em></h4>
+        <div class="where">Terminal 4 · Avianca</div>
+        <p>Domingo a esa hora, 45–55 min típico.</p>
+      </div>
+
+      <div class="stop">
+        <div class="time">11:30</div>
+        <h4>JFK</h4>
+        <p>Check-in y migración.</p>
+      </div>
+
+      <div class="stop show-stop">
+        <div class="time">12:30</div>
+        <h4>AV211 · NY → Bogotá</h4>
+        <p>Estar en el aeropuerto según pedido del vuelo.</p>
+      </div>
+    </div>
+
+    <div class="day-checks">
+      <div class="heading">Checks del día 03</div>
+      <div class="pills">
+        <span class="check-pill">High Line</span>
+        <span class="check-pill">Hudson Yards</span>
+        <span class="check-pill">Vessel</span>
+        <span class="check-pill">Liberty Bagels</span>
+        <span class="check-pill">Chelsea Market</span>
+        <span class="check-pill">West Village</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPRAS ─── -->
+  <section class="checklist" id="compras">
+    <div class="section-title">Checklist final</div>
+    <h2>Compras <em>pendientes</em></h2>
+    <div class="check-item" data-key="c1">
+      <div class="box"></div>
+      <div class="body"><div class="name">Yogurt Chobani</div><div class="where">Target East Village · Sáb</div></div>
+    </div>
+    <div class="check-item" data-key="c2">
+      <div class="box"></div>
+      <div class="body"><div class="name">Cereal Catalina Crunch</div><div class="where">Target East Village · Sáb</div></div>
+    </div>
+    <div class="check-item" data-key="c3">
+      <div class="box"></div>
+      <div class="body"><div class="name">UGGs</div><div class="where">UGG SoHo · 79 Spring St · Sáb</div></div>
+    </div>
+    <div class="check-item" data-key="c4">
+      <div class="box"></div>
+      <div class="body"><div class="name">New Balance</div><div class="where">Flatiron 5ta & 17th · Sáb desvío o Times Square</div></div>
+    </div>
+    <div class="check-item" data-key="c5">
+      <div class="box"></div>
+      <div class="body"><div class="name">Anthropologie</div><div class="where">Rockefeller Center · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c6">
+      <div class="box"></div>
+      <div class="body"><div class="name">Mug de NY</div><div class="where">Times Square · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c7">
+      <div class="box"></div>
+      <div class="body"><div class="name">Gorra de NY</div><div class="where">Times Square · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c8">
+      <div class="box"></div>
+      <div class="body"><div class="name">Buso de NY</div><div class="where">Times Square · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c9">
+      <div class="box"></div>
+      <div class="body"><div class="name">Pancake Jellycat</div><div class="where">FAO Schwarz · Rockefeller · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c10">
+      <div class="box"></div>
+      <div class="body"><div class="name">Muñeco Pokémon</div><div class="where">Pokémon Center NYC · 30 Rock · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c11">
+      <div class="box"></div>
+      <div class="body"><div class="name">Levi's</div><div class="where">Levi's flagship · 1535 Broadway · Vie</div></div>
+    </div>
+    <div class="check-item" data-key="c12">
+      <div class="box"></div>
+      <div class="body"><div class="name">Mure & Grand</div><div class="where">SoHo · Sáb</div></div>
+    </div>
+  </section>
+
+  <!-- ─── COMIDAS ─── -->
+  <section class="checklist" id="comidas" style="background: var(--paper-2);">
+    <div class="section-title">Checklist final</div>
+    <h2>Comidas <em>imperdibles</em></h2>
+    <div class="check-item" data-key="f1">
+      <div class="box"></div>
+      <div class="body"><div class="name">Russ & Daughters</div><div class="where">Vie desayuno · Cafe 127 Orchard</div></div>
+    </div>
+    <div class="check-item" data-key="f2">
+      <div class="box"></div>
+      <div class="body"><div class="name">Hamburguesa Pat LaFrieda's</div><div class="where">Sáb almuerzo · Time Out Market DUMBO</div></div>
+    </div>
+    <div class="check-item" data-key="f3">
+      <div class="box"></div>
+      <div class="body"><div class="name">Levain Bakery</div><div class="where">Vie snack en Central Park</div></div>
+    </div>
+    <div class="check-item" data-key="f4">
+      <div class="box"></div>
+      <div class="body"><div class="name">Katz's pastrami</div><div class="where">Sáb tarde</div></div>
+    </div>
+    <div class="check-item" data-key="f5">
+      <div class="box"></div>
+      <div class="body"><div class="name">Cha Cha Matcha</div><div class="where">Sáb SoHo · 373 Broome St</div></div>
+    </div>
+    <div class="check-item" data-key="f6">
+      <div class="box"></div>
+      <div class="body"><div class="name">Joe's Pizza</div><div class="where">Vie pre-show · 1435 Broadway</div></div>
+    </div>
+    <div class="check-item" data-key="f7">
+      <div class="box"></div>
+      <div class="body"><div class="name">Magnolia Bakery (pudín de banana)</div><div class="where">Vie tarde o noche · Rockefeller</div></div>
+    </div>
+    <div class="check-item" data-key="f8">
+      <div class="box"></div>
+      <div class="body"><div class="name">Los Tacos No. 1</div><div class="where">Vie alternativa pre-show · 229 W 43rd</div></div>
+    </div>
+    <div class="check-item" data-key="f9">
+      <div class="box"></div>
+      <div class="body"><div class="name">Liberty Bagels</div><div class="where">Dom desayuno · 260 W 35th</div></div>
+    </div>
+    <div class="check-item" data-key="f10">
+      <div class="box"></div>
+      <div class="body"><div class="name">7th Street Burger</div><div class="where">Sáb cena · 104 E 7th</div></div>
+    </div>
+  </section>
+
+  <!-- ─── NOTAS ─── -->
+  <section class="notas">
+    <div class="section-title">Notas importantes</div>
+    <div class="nota"><div class="num">01</div><div><strong>Vessel</strong> está cerrado al público desde 2021, solo se ve por fuera.</div></div>
+    <div class="nota"><div class="num">02</div><div><strong>Tickets ferry Estatua</strong>: reservar Statue City Cruises con anticipación (primer turno 9 am sábado).</div></div>
+    <div class="nota"><div class="num">03</div><div><strong>Wicked</strong>: llegar al Gershwin Theatre 18:45 a más tardar.</div></div>
+    <div class="nota"><div class="num">04</div><div><strong>Summit</strong>: la entrada timed es 6:00–7:00 pm, se accede por One Vanderbilt (al lado de Grand Central).</div></div>
+    <div class="nota"><div class="num">05</div><div><strong>Carlo's Bake Shop</strong>: la sucursal Manhattan (Port Authority, 625 8th Ave) ahorra el viaje a NJ — productos iguales.</div></div>
+    <div class="nota"><div class="num">06</div><div><strong>Magnolia Bakery Rockefeller</strong> abre 8 am – 11 pm, ideal post-show.</div></div>
+    <div class="nota"><div class="num">07</div><div><strong>Liberty Bagels</strong> domingos abre 6 am pero cierra 15 h — perfecto para desayuno antes del vuelo.</div></div>
+    <div class="nota"><div class="num">08</div><div><strong>Target East Village</strong> abre hasta 22 h sábados.</div></div>
+    <div class="nota"><div class="num">09</div><div><strong>Uber a JFK domingo medio día</strong>: dejar margen, usar la app con anticipación.</div></div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="signature">— Buen viaje —</div>
+    <div class="meta">Documento · Abril/Mayo 2026</div>
+  </footer>
+
+<script>
+  // Tabs
+  const tabs = document.querySelectorAll('.tab');
+  const days = document.querySelectorAll('.day');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const d = tab.dataset.day;
+      tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+      days.forEach(day => day.classList.toggle('active', day.dataset.day === d));
+      window.scrollTo({ top: document.querySelector('.tabs').offsetTop - 1, behavior: 'smooth' });
+    });
+  });
+
+  // Checklist persistence
+  const KEY = 'ny-plan-checks';
+  const state = JSON.parse(localStorage.getItem(KEY) || '{}');
+  document.querySelectorAll('.check-item').forEach(item => {
+    const k = item.dataset.key;
+    if (state[k]) item.classList.add('done');
+    item.addEventListener('click', () => {
+      item.classList.toggle('done');
+      state[k] = item.classList.contains('done');
+      localStorage.setItem(KEY, JSON.stringify(state));
+    });
+  });
+</script>
+</body>
+</html>
